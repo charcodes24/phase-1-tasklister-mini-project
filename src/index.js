@@ -1,31 +1,23 @@
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  let form = document.forms[0];
+  let form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let info = document.getElementById('new-task-description').value;
     let list = document.createElement('li');
+    let ul = document.getElementById('tasks');
     list.innerHTML = info;
+    ul.append(list);
+    form.reset();
     let button = document.createElement('button');
     button.innerHTML = 'x';
-    list.append(button);
-    button.addEventListener('onclick', (e) => {
-      this.closest('li').innerHTML.remove();
-    })
-    document.getElementById('tasks').appendChild(list);
+    list.appendChild(button);
+    button.setAttribute('id', info);
+    button.onclick = function() {
+      this.parentElement.remove();
+    }
   });
-  
-});
-
-
-
-//get info out of input
-//create new li 
-//info gets into li
-//get li onto the page
-
-//create button 
-//button has x
-//button on page
-//event listener for button
-//function for button that deletes li ** could be broken into smaller tasks
+}); 
 
