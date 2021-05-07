@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let button = document.createElement('button');
     button.innerHTML = 'x';
     list.appendChild(button);
-    button.setAttribute('id', info);
     button.onclick = function() {
       this.parentElement.remove();
     }
